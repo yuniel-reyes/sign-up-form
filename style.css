@@ -1,0 +1,22 @@
+/* General styling using the :root pseudo-class */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    /* Flex adjustments */
+
+    /* background adjustments */
+    background-image: url('/part_2/sign-up-form/background-image.jpg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-clip: border-box; 
+    background-attachment: fixed;
+    /* width: 100vw;
+    height: 100vh; */
+
+}
