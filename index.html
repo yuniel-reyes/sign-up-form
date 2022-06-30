@@ -9,9 +9,30 @@
 
 </head>
 <body>
+    <div class="banner-one"></div>
     <main id="main-container">
-        <div class="background-image"></div>
-        <h1>Hello</h1>
+        <form action="#" method="post">
+            <div class="all-inputs-containers">
+                <ul class="container-one">
+                    <li><label for="fname">First Name</label><input type="text" id="fname" name="fname" required></li>
+                    <li><label for="email">Email</label><input type="email" id="usermail" name="usermail" required></li>
+                    <li><label for="pwd">Password</label><input type="password" id="pwd" name="pwd" required></li>
+                </ul>
+                <ul class="container-two">
+                    <li><label for="lname">Last Name</label><input type="text" id="lname" name="lname" required></li>
+                    <li><label for="pnumber">Phone Number</label><input type="tel" id="pnumber" name="pnumber" required></li>
+                    <li><label for="twice-pwd">Confirm Password</label><input type="password" id="twice-pwd" name="twice-pwd" required></li>
+                </ul>
+            </div>
+            <div class="new-account-btn-container">
+                <button id="new-account-btn" type="submit">Create Account</button>
+            </div>    
+        </form>
+        <div class="change-to-login">
+            <p>Already have and account? <a href="#">Log in</a></p>
+        </div>
     </main>
+    
+    <div class="banner-two"></div>
 </body>
 </html>

@@ -1,12 +1,28 @@
 /* General styling using the :root pseudo-class */
+:root {
+    /* Declare global variables */
+    --text-font: 'sofia-pro';
+
+    /* Use global variables */
+    font-family: 'sofia-pro';
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Sofia-Pro';
+    src: url(/part_2/sign-up-form/sofiapro-light.otf);
+}
+
 
 body {
     /* Flex adjustments */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
     /* background adjustments */
     background-image: url('/part_2/sign-up-form/background-image.jpg');
@@ -18,5 +34,67 @@ body {
     background-attachment: fixed;
     /* width: 100vw;
     height: 100vh; */
-
 }
+
+.banner-one {
+    height: calc(100vh/3);
+}
+
+#main-container {
+    border: solid 1px black;
+    border-radius: 15px;
+    margin-right: 70px;
+}
+
+/* Put both input groups side by side */
+.all-inputs-containers {
+    display: flex;
+}
+
+/* Remove ul styling */
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* Give inputs/widgets same size */
+input {
+    width: 240px;
+    height: 25px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+input:valid {
+    border-color: blue;
+}
+
+/* new-account-btn-container */
+/* To login */
+.new-account-btn-container, .change-to-login {
+    padding: 12px;
+}
+
+#new-account-btn {
+    padding: 10px;
+    background-color: black;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.change-to-login a {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+}
+
+
