@@ -12,7 +12,7 @@
     <section class="banner-one">
     </section>
     <main id="main-container">
-        <form action="#" method="post">
+        <form id="my-form">
             <div class="all-inputs-containers">
                 <ul class="container-one">
                     <li><label for="fname">First Name*</label><input type="text" id="fname" name="fname" required autocomplete="off"></li>
@@ -29,7 +29,7 @@ Valid password example: Z-2.we?{"></li>
                 </ul>
             </div>
             <div class="new-account-btn-container password-msg">
-                <button id="new-account-btn" type="submit">Create Account</button>
+                <button id="new-account-btn" type="submit" form="my-form">Create Account</button>
                 <p class="error-msg"></p>
             </div>    
         </form>
@@ -38,13 +38,10 @@ Valid password example: Z-2.we?{"></li>
         </div>
     </main>
     <div class="banner-two">
-        <div id="three-logos-container">
-            <div class="logo-one">
-                <input type="image" id="odin-logo" src="/part_2/sign-up-form/odin-lined.png" alt="odin-logo">
-                <p class="odin">odin</p>
-                <input type="image" id="github-logo" src="/part_2/sign-up-form/GitHub-Mark-32px.png" alt="">
-            </div>
-    
+        <div id="logos-container">
+                <div class="odin-container"><a href="https://www.theodinproject.com/" target="_blank"><img id="odin-logo" src="odin-lined.png" alt="odin-logo"></a></div>
+                <div class="odin-tag"><p class="odin">odin</p></div>
+                <div class="github-container"><a href="" target="_blank"><img id="github-logo" src="GitHub-Mark-32px.png" alt="github-logo"></img></a></div>    
         </div>            
         <a href='https://www.freepik.com/photos/man-thinking'>"Man thinking". Photo created by wayhomestudio - www.freepik.com</a></div>
         <script>
@@ -58,7 +55,7 @@ Valid password example: Z-2.we?{"></li>
                     return;
                 } else {
                     errorMessage.textContent = "";
-                    e.target.patter = e.target.value;
+                    e.target.pattern = e.target.value;
                     return;
                 }
             }
@@ -87,6 +84,7 @@ Valid password example: Z-2.we?{"></li>
                         return;
                 } else {
                     errorMessage.textContent = "";
+                    e.target.pattern = passWord;
                     validFirst = true;
                     firstPassword = passWord;
                     return;
@@ -123,9 +121,6 @@ Valid password example: Z-2.we?{"></li>
             // Store first entered password
             let firstPassword = "";
             let validFirst = Boolean();
-            
-
-
 
         </script>
 </body>

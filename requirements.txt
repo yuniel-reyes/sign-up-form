@@ -43,4 +43,5 @@ A simple sign-up form
 
             True  (validity of FP):
                 - call confirmPassword()
+2. Add functionality to createAccount button
     
