@@ -9,30 +9,124 @@
 
 </head>
 <body>
-    <div class="banner-one"></div>
+    <section class="banner-one">
+    </section>
     <main id="main-container">
         <form action="#" method="post">
             <div class="all-inputs-containers">
                 <ul class="container-one">
-                    <li><label for="fname">First Name</label><input type="text" id="fname" name="fname" required></li>
-                    <li><label for="email">Email</label><input type="email" id="usermail" name="usermail" required></li>
-                    <li><label for="pwd">Password</label><input type="password" id="pwd" name="pwd" required></li>
+                    <li><label for="fname">First Name*</label><input type="text" id="fname" name="fname" required autocomplete="off"></li>
+                    <li><label for="email">Email*</label><input type="email" id="usermail" name="usermail" required autocomplete="off"></li>
+                    <li><label for="pwd">Password*</label><input type="password" id="pwd" name="pwd" required autocomplete="off" title="Password must contain at 
+least 8 characters: uppercase, 
+lowercase, number and other characters. 
+Valid password example: Z-2.we?{"></li>
                 </ul>
                 <ul class="container-two">
-                    <li><label for="lname">Last Name</label><input type="text" id="lname" name="lname" required></li>
-                    <li><label for="pnumber">Phone Number</label><input type="tel" id="pnumber" name="pnumber" required></li>
-                    <li><label for="twice-pwd">Confirm Password</label><input type="password" id="twice-pwd" name="twice-pwd" required></li>
+                    <li><label for="lname">Last Name*</label><input type="text" id="lname" name="lname" required autocomplete="off"></li>
+                    <li><label for="pnumber">Phone Number*</label><input type="tel" id="pnumber" name="pnumber" required pattern="[0-9]{9}" title="Only numbers are valid" autocomplete="off"></li>
+                    <li><label for="twice-pwd">Confirm Password*</label><input type="password" id="twice-pwd" name="twice-pwd" required title="Passwords must match"></li>
                 </ul>
             </div>
-            <div class="new-account-btn-container">
+            <div class="new-account-btn-container password-msg">
                 <button id="new-account-btn" type="submit">Create Account</button>
+                <p class="error-msg"></p>
             </div>    
         </form>
         <div class="change-to-login">
             <p>Already have and account? <a href="#">Log in</a></p>
         </div>
     </main>
+    <div class="banner-two">
+        <div id="three-logos-container">
+            <div class="logo-one">
+                <input type="image" id="odin-logo" src="/part_2/sign-up-form/odin-lined.png" alt="odin-logo">
+                <p class="odin">odin</p>
+                <input type="image" id="github-logo" src="/part_2/sign-up-form/GitHub-Mark-32px.png" alt="">
+            </div>
     
-    <div class="banner-two"></div>
+        </div>            
+        <a href='https://www.freepik.com/photos/man-thinking'>"Man thinking". Photo created by wayhomestudio - www.freepik.com</a></div>
+        <script>
+
+
+            // Create confirmPassword()
+            function confirmPassword(e){
+                if (firstPassword !== e.target.value){
+                    errorMessage.textContent = "Passwords must match"
+                    e.target.pattern = "";
+                    return;
+                } else {
+                    errorMessage.textContent = "";
+                    e.target.patter = e.target.value;
+                    return;
+                }
+            }
+
+
+            // Create checkPassword()
+            function checkPassword(e) {
+
+                if (validFirst && e.target.id == "twice-pwd"){
+                    confirmPassword(e);
+                    return;
+                }
+                
+                const UPPER_CASES = /[A-Z]/;
+                const LOWER_CASES = /[a-z]/;
+                const NUMBERS = /[0-9]/;
+                const OTHER_CHARS = /\W/;
+                let passWord = e.target.value;
+
+                if ((passWord.length == 0) || (!UPPER_CASES.test(passWord)) || (!NUMBERS.test(passWord)) ||
+                    (!LOWER_CASES.test(passWord)) || (passWord.length < 8) || (!OTHER_CHARS.test(passWord))) {
+                        errorMessage.textContent = "Enter valid password";
+                        e.target.pattern = "";
+                        // validFirst = false;
+                        firstPassword = passWord;
+                        return;
+                } else {
+                    errorMessage.textContent = "";
+                    validFirst = true;
+                    firstPassword = passWord;
+                    return;
+                }
+
+            }
+                        
+            // REFERENCES for first password
+            // Get reference of first password node
+            const pwdOne = document.querySelector('input[id=pwd]');
+            // Check passwords
+            pwdOne.oninput = (e) => checkPassword(e);
+            // Check password on focus
+            pwdOne.onfocus = checkPassword;
+            // Remove error message if focus out            
+            pwdOne.addEventListener('focusout', (e) => {
+               errorMessage.textContent = "";
+            });
+
+            // REFERENCES for second password
+            // Get reference of password confirmation node
+            const twicePwd = document.querySelector('input[id=twice-pwd]');
+            // Check passwords
+            twicePwd.oninput = (e) => checkPassword(e)
+            // Check password on focus
+            twicePwd.onfocus = checkPassword;            
+            // Remove error msg when focus out of password
+            twicePwd.addEventListener('focusout', (e) => {
+               errorMessage.textContent = "";
+            });
+
+            // Get reference to error message node
+            const errorMessage = document.querySelector('.error-msg');
+            // Store first entered password
+            let firstPassword = "";
+            let validFirst = Boolean();
+            
+
+
+
+        </script>
 </body>
 </html>

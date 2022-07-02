@@ -23,6 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content:space-between;
 
     /* background adjustments */
     background-image: url('/part_2/sign-up-form/background-image.jpg');
@@ -32,18 +33,15 @@ body {
     background-origin: border-box;
     background-clip: border-box; 
     background-attachment: fixed;
-    /* width: 100vw;
-    height: 100vh; */
-}
-
-.banner-one {
-    height: calc(100vh/3);
+    width: 100vw;
+    height: 100vh;
 }
 
 #main-container {
     border: solid 1px black;
     border-radius: 15px;
     margin-right: 70px;
+    background-color: black;
 }
 
 /* Put both input groups side by side */
@@ -62,6 +60,19 @@ li {
     padding: 10px;
 }
 
+label {
+    color: white;
+}
+
+/* Error message */
+.error-msg, .error-msg-two {
+    color: orangered;
+    font-size: 12px;
+    margin-left: 10px;
+    position: relative;
+    left: 190px;
+}
+
 /* Give inputs/widgets same size */
 input {
     width: 240px;
@@ -72,29 +83,98 @@ input {
     padding: 5px;
 }
 
-input:valid {
-    border-color: blue;
+input:focus{
+    outline: none;
+    border: solid;
 }
+
+input:valid {    /*required:*/
+    border: 2px solid orange;  /**/
+}
+
 
 /* new-account-btn-container */
 /* To login */
 .new-account-btn-container, .change-to-login {
     padding: 12px;
+    display: flex;
+    align-items: center;
 }
+
 
 #new-account-btn {
     padding: 10px;
-    background-color: black;
+    background-color: orangered;
     border: none;
     border-radius: 30px;
     color: white;
     cursor: pointer;
 }
 
+.change-to-login {
+    color: white;
+}
+
 .change-to-login a {
     text-decoration: none;
-    color:white;
+    color: orangered;
     font-weight: bold;
 }
+
+/* banner-two */
+.banner-two {
+    display: flex;
+    align-items: flex-end;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    gap: 30px;
+}
+
+.banner-two a {
+    color: white;
+    text-decoration: none;
+}
+
+
+#three-logos-container {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 20px 0 0;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.logo-one {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    /* background-color: black; */
+    /* border-radius: 7px; */
+    width: 70px;
+}
+
+input[type="image"] {
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    background-color: gray;
+    padding: 1px;
+    border-radius: 7px 0 0 7px;
+}
+
+.odin {
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    font-weight: bold;
+    background-color: orangered;
+    line-height: 15px;
+}
+
+input[type="image"]#github-logo {
+    background-color: white;
+    border-radius: 0px 7px 7px 0;
+}
+
 
 

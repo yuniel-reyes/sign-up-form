@@ -1,0 +1,46 @@
+# Sign-up Form
+
+A simple sign-up form
+
+## Non-Functional Requirements
+1. Remove paddings and margins
+2. Create general structure of the page
+    - add background image
+        - adjust background image
+    - add boxes for form structure
+3. Add form
+    - add inputs, buttons, links
+    - remove default style (focus styles, etc.)
+    - give them structure
+4. Add form validation (non-functional)
+    - make each input `required`
+    - add pattern validation
+
+## Functional Requirements
+
+1. Add form validation (functional)
+    - Lets create a simple validation for both passwords
+    **First entered password**
+    - Get node references
+    - Create event handlers
+    - Create variable to hold first password and validity 
+    of FP
+    - When input event gets triggered, call `checkPassword`.
+      It will check if first password was already entered:
+        - False: call `checkFirst()`. It will:
+            - create restrictions for validation
+            - get the value of input*
+            - check value against restrictions:
+                (length, uppercase, special chars, 
+                 number)
+            - if invalid password:
+                - show error message
+                - do not color box  
+            - If valid PW:
+                - update firstPassword
+                - color box border
+                - update error message
+
+            True  (validity of FP):
+                - call confirmPassword()
+    
